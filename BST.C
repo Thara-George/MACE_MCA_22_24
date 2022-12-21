@@ -106,12 +106,7 @@ void main() {
 			break;
 			case 4:inorder(root);
 			break;
-			case 5:printf("\nEnter the value : ");
-			scanf("%d",&x);
-			search(root,x);
-			break;
-			case 6:printf("\nPress any key to exit...");
-			getch();
+			case 5:printf("\nPress any key to exit...");
 			exit(0);
 			break;
 			default:printf("\nInvalid choice");
