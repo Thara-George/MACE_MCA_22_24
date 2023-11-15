@@ -1,0 +1,72 @@
+<!-- templates/predict.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #911007;
+            background: url("static/predict2.png") center center fixed; 
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Garamond', serif;
+            color: #911a1a;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            font-family: 'Garamond', serif;
+            background-color: #870f0f;
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        .btn-click {
+            font-family: 'Garamond', serif;
+            background-color: #b50606;
+            border-color: #ff0000;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .btn-click:hover {
+            background-color: #b30000;
+            border-color: #b30000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+
+        {% if prediction %}
+        <div class="result">
+            <h3>Prediction Result:</h3>
+            <p class="lead">{{ prediction }}</p>
+        </div>
+        {% endif %}
+
+        <a href="/" class="btn btn-click btn-block mt-3" >Go Back</a>
+    </div>
+</body>
+
+</html>

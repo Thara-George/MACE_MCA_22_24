@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add this script in the head section of your HTML file -->
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("predictionForm").addEventListener("submit", function (event) {
+                // Validate form fields
+                if (!validateAge() || !validateSex() || !validateChestPainType() ||
+                    !validateNumericField("trestbps") || !validateCholesterol() ||
+                    !validateFastingBloodSugar() || !validateNumericField("restecg") ||
+                    !validateMaxHeartRate() || !validateExerciseInducedAngina() ||
+                    !validateSTDepression() || !validateNumericField("slope") ||
+                    !validateNumericField("ca") || !validateNumericField("thal")) {
+                    event.preventDefault();
+                }
+            });
+
+            function validateAge() {
+                var age = document.getElementById("age").value;
+                if (isNaN(age) || age <= 0 || age >= 100 || age.trim() === "") {
+                    alert("Please enter a valid age (between 1 and 99).");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateSex() {
+                var sex = document.getElementById("sex").value;
+                if (sex !== "0" && sex !== "1") {
+                    alert("Please select a valid sex.");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateChestPainType() {
+                var chestPainType = document.getElementById("cp").value;
+                if (isNaN(chestPainType) || chestPainType < 0 || chestPainType > 3 || !Number.isInteger(parseFloat(chestPainType)) || chestPainType.trim() === "") {
+                    alert("Please enter a valid chest pain type (0 to 3).");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateFastingBloodSugar() {
+                var fbs = document.getElementById("fbs").value;
+                if (fbs !== "0" && fbs !== "1") {
+                    alert("Please select a valid fasting blood sugar level.");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateExerciseInducedAngina() {
+                var exang = document.getElementById("exang").value;
+                if (exang !== "0" && exang !== "1") {
+                    alert("Please select a valid exercise-induced angina status.");
+                    return false;
+                }
+                return true;
+            }
+
+            function validateCholesterol() {
+                var cholesterol = document.getElementById("chol").value;
+                if (isNaN(cholesterol) || cholesterol.trim() === "") {
+                    alert("Please enter a valid numeric value for Cholesterol.");
+                    return false;
+                }
+
+                // Set your maximum limit (e.g., 300) for cholesterol
+                var maxCholesterol = 300;
+                if (parseFloat(cholesterol) > maxCholesterol) {
+                    alert("Cholesterol should not exceed " + maxCholesterol + ".");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function validateMaxHeartRate() {
+                var maxHeartRate = document.getElementById("thalach").value;
+                if (isNaN(maxHeartRate) || maxHeartRate.trim() === "") {
+                    alert("Please enter a valid numeric value for Maximum Heart Rate.");
+                    return false;
+                }
+
+                // Set your maximum limit (e.g., 220) for maximum heart rate
+                var maxMaxHeartRate = 220;
+                if (parseFloat(maxHeartRate) > maxMaxHeartRate) {
+                    alert("Maximum Heart Rate should not exceed " + maxMaxHeartRate + ".");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function validateSTDepression() {
+                var stDepression = document.getElementById("oldpeak").value;
+                if (isNaN(stDepression) || stDepression.trim() === "") {
+                    alert("Please enter a valid numeric value for ST Depression.");
+                    return false;
+                }
+
+                // Set your maximum limit (e.g., 5) for ST depression
+                var maxSTDepression = 5;
+                if (parseFloat(stDepression) > maxSTDepression) {
+                    alert("ST Depression should not exceed " + maxSTDepression + ".");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function validateNumericField(fieldName) {
+                var fieldValue = document.getElementById(fieldName).value;
+                if (isNaN(fieldValue) || fieldValue.trim() === "") {
+                    alert("Please enter a valid numeric value for " + fieldName.toUpperCase() + ".");
+                    return false;
+                }
+                return true;
+            }
+        });
+    </script> -->
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Signika+Negative:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        ::placeholder {
+        color: #ffffff;
+    }
+        * {
+            font-family: 'Garamond', serif;
+        }
+
+        body {
+            background-color: #5f0303;
+            background: url("static/index2.png") center center fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #56131341;
+            box-shadow: 0 0 10px rgb(0 0 0);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Pacifico;
+            color: white;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #007bff;
+            color: #ed5252;
+            border-radius: 8px;
+        }
+
+        .btn-click {
+            background-color: #f0e5e5;
+            border-color: #660808;
+            color: rgb(46, 2, 2);
+        }
+
+        .btn-click:hover {
+            background-color: #f67e75;
+            border-color: #340403;
+        }
+
+        .form-group .form-control {
+            color: rgb(255, 255, 255);
+            background: #fff0;
+        }
+        .form-control::placeholder {
+    color: #ffffff; /* Red color code */
+}
+.center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #340403;
+        height: 10vh; /* This ensures the content is centered vertically on the entire viewport height */
+    }
+    .btn-go-back {
+        color: #ffffff; /* Text color */
+        background-color: rgb(148, 7, 7); /* Background color */
+        border-color: #a73434; /* Border color */
+        color: #ffffff;
+        
+    }
+    .btn-go-back:hover {
+        background-color: rgb(179, 0, 0); /* Hover background color */
+        border-color: rgb(214, 69, 69) /* Hover border color */
+    }
+    .btn-view-features {
+        color: #ffffff;
+        background-color: #9e1010;
+        border-color: #340403;
+        margin-top: 20px; /* Adjust the margin as needed */
+    }
+    .btn-view-features:hover{
+        background-color: #360603;
+            border-color: #340403; 
+    }
+    </style>
+</head>
+
+<body background="download.jpeg">
+    <div class="container">
+        <h1><b>HEART DISEASE PREDICTION</b></h1>
+        <form id="predictionForm" method="POST" action="/predict" onsubmit="return validateForm()" name="predictionForm">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" class="form-control" name="age" id="age" min="0" max="100" placeholder="Enter your age" style="background-color: rgba(53, 4, 4, 0.475);" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select class="form-control" name="sex" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="0" style="background-color: #7f3535;">Female</option>
+                    <option value="1" style="background-color: #7f3535;">Male</option>
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="cp">Chest Pain Type:</label>
+                <input type="number" class="form-control" name="cp" placeholder="0: Typical angina, 1: Atypical angina, 2: Non-anginal pain, 3: Asymptomatic" style="background-color: rgba(53, 4, 4, 0.475);" required>
+            </div> -->
+            <div class="form-group">
+                <label for="cp">Chest Pain Type:</label>
+                <select class="form-control" name="cp" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" disabled selected hidden>Select Chest Pain Type</option>
+                    <option value="0">Typical angina</option>
+                    <option value="1">Atypical angina</option>
+                    <option value="2">Non-anginal pain</option>
+                    <option value="3">Asymptomatic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trestbps">Resting Blood Pressure:</label>
+                <input type="number" class="form-control" name="trestbps" min=0 max=1000 required placeholder="Enter resting blood pressure (normal value range 90 to 120 mm Hg)" style="background-color: rgba(53, 4, 4, 0.475);">
+            </div>
+            <div class="form-group">
+                <label for="chol">Cholesterol Level:</label>
+                <input type="number" class="form-control" name="chol" min=0 max=1000 placeholder="Enter cholesterol level (normal value less than 200 mg/dL)" required style="background-color: rgba(53, 4, 4, 0.475);">
+            </div>
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar:</label>
+                <select class="form-control" name="fbs" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="0" style="background-color: #7f3535;">Below 120 mg/dl</option>
+                    <option value="1" style="background-color: #7f3535;">Above 120 mg/dl</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="restecg">Resting ECG:</label>
+                <select class="form-control" name="restecg" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" disabled selected hidden>Select Resting ECG Result</option>
+                    <option value="0">Normal</option>
+                    <option value="1">Abnormality related to ST-T wave</option>
+                    <option value="2">Probable or definite left ventricular hypertrophy</option>
+                </select>
+                
+            </div>
+            <div class="form-group">
+                <label for="thalach">Max Heart Rate:</label>
+                <input type="number" class="form-control" name="thalach" min=0 max=1000 required placeholder="Enter Maximum Heart Rate (normal value between 60-220 bpm)" style="background-color: rgba(53, 4, 4, 0.475);">
+            </div>
+            <div class="form-group">
+                <label for="exang">Exercise-Induced Angina:</label>
+                <select class="form-control" name="exang" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="0" style="background-color: #7f3535;">No</option>
+                    <option value="1" style="background-color: #7f3535;">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="oldpeak">ST Depression:</label>
+                <input type="text" class="form-control" name="oldpeak" required min=0 max=1000 placeholder="Enter ST Depression Value (0.0 - 5.0)" style="background-color: rgba(53, 4, 4, 0.475);" >
+            </div>
+            <!-- <div class="form-group">
+                <label for="slope">Slope:</label>
+                <input type="number" class="form-control" name="slope" required  placeholder="Enter Slope Value (0 - 2)" style="background-color: rgba(53, 4, 4, 0.475);" >
+            </div> -->
+            <div class="form-group">
+                <label for="slope">Slope:</label>
+                <select class="form-control" name="slope" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" disabled selected hidden>Select Slope</option>
+                    <option value="0">Upsloping</option>
+                    <option value="1">Flat</option>
+                    <option value="2">Downsloping</option>
+                </select>
+            </div>
+            <!-- For Number of Blood Vessels -->
+<div class="form-group">
+    <label for="ca">Number of Major Vessels:</label>
+    <select class="form-control" name="ca" required style="background-color: rgba(53, 4, 4, 0.475);">
+        <option value="" disabled selected hidden>Select Number of Major Vessels</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+
+            <!-- <div class="form-group">
+                <label for="ca">Number of Major Vessels:</label>
+                <input type="text" class="form-control" name="ca" required placeholder="Enter Number of Major Vessels (0 - 3)" style="background-color: rgba(53, 4, 4, 0.475);">
+            </div> -->
+            <!-- <div class="form-group">
+                <label for="thal">Thalassemia Type:</label>
+                <input type="text" class="form-control" name="thal" required placeholder="Enter Thalassemia Type (0 - 3)" style="background-color: rgba(53, 4, 4, 0.475);">
+            </div> -->
+            <div class="form-group">
+                <label for="thal">Thalassemia Type:</label>
+                <select class="form-control" name="thal" required style="background-color: rgba(53, 4, 4, 0.475);">
+                    <option value="" disabled selected hidden>Select Thalassemia Type</option>
+                    <option value="0">Normal</option>
+                    <option value="1">Fixed Defect</option>
+                    <option value="2">Reversible Defect</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-click btn-block"><b>PREDICT</b></button>
+            <div class="center">
+                <a href="/features" class="btn btn-primary btn-view-features">View Features</a>
+            </div>
+            <div class="previous">
+                <a href="/" class="btn btn-primary btn-go-back">Go Back to Home</a>
+                </div>
+            
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h3>Prediction Result:</h3>
+            <p class="lead">{{ prediction }}</p>
+        </div>
+        {% endif %}
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction - Home</title>
+    <!-- Add your CSS styles or external stylesheets here -->
+    <style>
+        body {
+            background-color: #e74c3c; /* Dark Red */
+            background: url("static/home2.png") center center fixed;
+            color: #fff; /* White text */
+            font-family: 'Signika Negative', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative; /* Added to position the signature */
+        }
+        h1, p, a {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Garamond', serif;
+            color: white;
+            font-size: 400%;
+        }
+
+        p {
+            color: #ffffff; /* Pumpkin */
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-family: 'Garamond', serif;
+            font-size: larger;
+        }
+
+        .btn-primary {
+            background-color: #ffffff; /* Red */
+            color: #400808; /* White text */
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            font-family: 'Garamond', serif;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+        }
+
+        .btn-primary:hover {
+            background-color: #922b21; /* Darker Red on hover */
+        }
+
+        /* Added signature animation */
+        .signature {
+            position: absolute;
+            bottom: 10px;
+            font-family: 'Garamond', serif;
+            color: white;
+            font-size: 24px;
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Heart Disease Prediction!</h1>
+
+    <p>This is the home page for the Heart Disease Prediction web app. <br><br>Click the button below to go to the prediction page:</p>
+
+    <a href="/predict" class="btn btn-primary"><b>Go to Prediction Page</b></a>
+
+    <div class="signature">Thara George</div>
+
+    <!-- Add your additional content or styling here -->
+</body>
+
+</html>

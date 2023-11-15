@@ -1,0 +1,149 @@
+<!-- templates/features.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction - Features Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 20px;
+            font-family: 'Garamond', serif;
+            color: #ffffff;
+            background-color: brown;
+            background: url("static/home2.png") center center fixed;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #610707;
+        }
+        .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #340403;
+        height: 10vh; /* This ensures the content is centered vertically on the entire viewport height */
+    }
+
+        .btn-primary {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #860404; /* Change the color to your desired color */
+            color: #ffffff;
+            border: #320606;
+        }
+
+        .btn-primary:hover {
+            background-color: #b30c00; /* Change the hover color */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Heart Disease Prediction - Features Details</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Description</th>
+                <th>Value Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Age</td>
+                <td>1 - 99</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Sex</td>
+                <td>0: Female, 1: Male</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Chest Pain Type (cp)</td>
+                <td>0 - 3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Resting Blood Pressure (trestbps)</td>
+                <td>Enter value</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Cholesterol Level (chol)</td>
+                <td>Enter value</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Fasting Blood Sugar (fbs)</td>
+                <td>0: Below 120 mg/dl, 1: Above 120 mg/dl</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Resting ECG Results (restecg)</td>
+                <td>0: Normal, 1: Abnormality related to ST-T wave, 2: Probable or definite left ventricular hypertrophy</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Max Heart Rate (thalach)</td>
+                <td>Enter value (normal range 60-220 bpm)</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Exercise-Induced Angina (exang)</td>
+                <td>0: No, 1: Yes</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>ST Depression (oldpeak)</td>
+                <td>Enter value (0.0 - 5.0)</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Slope of the Peak Exercise ST Segment (slope)</td>
+                <td>Enter value (0 - 2)</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Number of Major Vessels (ca)</td>
+                <td>Enter value (0 - 3)</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Thalassemia Type (thal)</td>
+                <td>Enter value (0 - 3)</td>
+            </tr>
+            <!-- Add more feature details as needed -->
+        </tbody>
+    </table>
+
+    <!-- Link to go back to the home page -->
+    <div class="center">
+    <a href="/" class="btn btn-primary">Go Back to Home</a>
+    </div>
+</body>
+
+</html>
